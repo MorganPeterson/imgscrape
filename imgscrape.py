@@ -55,8 +55,8 @@ def scanner(search, pages, processes):
     mk_rqts = partial(get_urls, search)
     pge_lst = [str(x * 10) for x in rng(0, int(pages))]
 
-    with Pool(prcsss) as p:
-        tmp = p.map(mk_rqts, pge_lst)
+    p = Pool(prcsss)
+    tmp = p.map(mk_rqts, pge_lst)
 
     result = [x for x in tmp]
 
@@ -71,4 +71,4 @@ def imgscrape(**kwargs):
     srch_trm = kwargs.get(config['kwargs']['trm'], '')
 
     result = scanner(srch_trm, pgs, prc)
-    print(*result)
+    print(result)
