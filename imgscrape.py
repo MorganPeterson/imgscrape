@@ -71,4 +71,5 @@ def imgscrape(**kwargs):
     srch_trm = kwargs.get(config['kwargs']['trm'], '')
 
     result = scanner(srch_trm, pgs, prc)
-    print(result)
+
+    return result
